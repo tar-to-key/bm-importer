@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '2.3.8'
-gem 'pg'
-gem 'i18n', '0.4.2'
+gem "pg", :group => :production
+ 'i18n', '0.4.2'
 
 #gem 'devise', '1.1.5'
 # Bundle edge Rails instead:
