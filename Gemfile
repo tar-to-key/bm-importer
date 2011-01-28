@@ -4,6 +4,9 @@ gem 'rails', '2.3.8'
 gem "pg", :group => :production
 gem 'i18n', '0.4.2'
 
+gem 'nokogiri'
+
+
 #gem 'devise', '1.1.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,7 +25,7 @@ gem 'i18n', '0.4.2'
 
 # Bundle the extra gems:
 # gem 'bj'
-gem 'nokogiri', '1.4.4'
+
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
