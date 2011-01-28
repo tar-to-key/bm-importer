@@ -10,7 +10,7 @@ Redmine::Plugin.register :redmine_bms do
   author_url 'http://example.com/about'
 
   #permission :view_bm_importers, {:imports => [:index]}, :public => true
-  menu :project_menu, :bm_importers, { :controller => 'imports', :action => 'index' }, :caption => "BM-IMPORT", :after => :roadmap, :param => :project_id
+  menu :project_menu, :bm_importers, { :controller => 'imports', :action => 'index' }, :caption => "Bm Import", :after => :roadmap, :param => :project_id
 
   project_module :bm_importers do
     permission :view_bm_importers, :imports => :index

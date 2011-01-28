@@ -22,8 +22,9 @@ class XmlData
     @xml.search("//TaskRepository/Tasks/Task").each do | task |
       id   = task.search("./Id").children.inner_text
       name = task.search("./Name").children.inner_text
+
       finish = task.search("./Finish").children.inner_text
-      result[id] = { :name => name, :finish => finish }
+      result[id] = { :name => name, :finish => finish[0..9] }
     end
     return result
   end
@@ -31,7 +32,6 @@ class XmlData
   def get_test
     result = Hash.new
     @xml.xpath("//TaskRepository/Tasks/Task")
-    raise @xml.class.inspect
     return result
   end
 end

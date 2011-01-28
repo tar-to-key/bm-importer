@@ -5,9 +5,7 @@
 <h3>プロジェクト名: <%= @project_name %></h3>
 
 <% @tasks.each do | key, task| %>
-
-<div>[タスク名]<%= task[:name]%>-<%= task[:finish] %></div>
-
+<div>[期日] <%= task[:finish] %> [タスク名] <%= task[:name]%></div>
 <% end %>
 <br />
 <% form_tag({:action=>'complete', :project_id=>@project.id},{:multipart=>true}) do %>
