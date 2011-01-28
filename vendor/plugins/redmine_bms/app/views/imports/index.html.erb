@@ -1,0 +1,8 @@
+<h2>Imports#index</h2>
+<% form_tag({:action=>'confirm', :project_id=>@project.id},{:multipart=>true}) do %>
+<%= file_field "file", "xml_data" %>
+<%= submit_tag "upload" %>
+<% end %>
+
+
+
