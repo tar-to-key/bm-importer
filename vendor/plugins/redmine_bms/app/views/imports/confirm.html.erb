@@ -2,15 +2,15 @@
 
 <div>下記の情報を登録します。</div>
 <br />
-<h3>プロジェクト名: <%= @project_name %></h3>
+<h3>プロジェクト名: <%= @bm_project[:name] %></h3>
 
 <% @tasks.each do | key, task| %>
 <div>[期日] <%= task[:finish] %> [タスク名] <%= task[:name]%></div>
 <% end %>
 <br />
-<% form_tag({:action=>'complete', :project_id=>@project.id},{:multipart=>true}) do %>
+<% form_tag({:action=>'complete'},{:multipart=>true}) do %>
 <%= submit_tag "登録" %>
 <% end %>
-<% form_tag({:action=>'index', :project_id=>@project.id}) do %>
+<% form_tag({:action=>'index'}) do %>
 <%= submit_tag "戻る" %>
 <% end %>

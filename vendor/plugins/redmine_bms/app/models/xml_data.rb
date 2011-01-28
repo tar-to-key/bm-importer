@@ -13,8 +13,11 @@ class XmlData
     return @xml
   end
 
-  def get_project_name
-    @xml.xpath("//ProjectInformation/Name").children.inner_text
+  def get_project
+    result = Hash.new
+    result[:name] = @xml.xpath("//ProjectInformation/Name").children.inner_text
+    result[:description] = @xml.xpath("//ProjectInformation/ProjectMemo").children.inner_text
+    return result
   end
 
   def get_tasks

@@ -1,5 +1,5 @@
 <h2>BmManagementXMLファイルを指定してください</h2>
-<% form_tag({:action=>'confirm', :project_id=>@project.id},{:multipart=>true}) do %>
+<% form_tag({:action=>'confirm'},{:multipart=>true}) do %>
 <%= file_field "file", "xml_data" %>
 <%= submit_tag "確認" %>
 <% end %>
