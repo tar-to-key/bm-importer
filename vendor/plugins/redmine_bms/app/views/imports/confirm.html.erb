@@ -1,12 +1,30 @@
-<h2>確認</h2>
+<h2>登録内容確認</h2>
 
-<div>下記の情報を登録します。</div>
+<div>下記の情報をプロジェクト登録します。</div>
 <br />
 <h3>プロジェクト名: <%= @bm_project[:name] %></h3>
 
-<% @tasks.each do | key, task| %>
-<div>[期日] <%= task[:finish] %> [タスク名] <%= task[:name]%></div>
-<% end %>
+<table class="list">
+  <tr>
+    <th>期日</th>
+    <th>タスク名</th>
+  </tr>
+  <% @tasks.each do |task_k, task_v| %>
+  <tr>
+    <td><%= task_v[:finish] %></td>
+    <td>
+        <%= task_v[:name] %>
+        <% if task_v[:issues].size > 0 then %>
+          <ul>
+          <% task_v[:issues].each do |issue_k, issue_v| %>
+            <li><%= issue_v[:name] %></li>
+          <% end%>
+          </ul>
+        <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
 <br />
 <% form_tag({:action=>'complete'},{:multipart=>true}) do %>
 <%= submit_tag "登録" %>

@@ -25,16 +25,49 @@ class XmlData
     @xml.search("//TaskRepository/Tasks/Task").each do | task |
       id   = task.search("./Id").children.inner_text
       name = task.search("./Name").children.inner_text
+      issues = get_issues(task)
 
       finish = task.search("./Finish").children.inner_text
-      result[id] = { :name => name, :finish => finish[0..9] }
+      result[id] = { :name => name, :finish => finish[0..9], :issues => issues }
     end
     return result
   end
 
-  def get_test
+  def get_issues(task)
     result = Hash.new
-    @xml.xpath("//TaskRepository/Tasks/Task")
+    task.search("./Children/Task").each do | child |
+      tmp = Hash.new
+      id = child.search("./Id").children.inner_text
+      result[id] = {
+        :name => child.search("./Name").children.inner_text,
+        :discription => child.search("./Memo").children.inner_text,
+        :start => child.search("./Start").children.inner_text[0..9],
+        :end => child.search("./Finish").children.inner_text[0..9]
+      }
+    end
     return result
   end
+
+#   def get_issues
+#     result = Hash.new
+#     @xml.search("//TaskRepository/Tasks/Task").each do | task |
+#       task.search("./Children/Task").each do | child |
+#         tmp = Hash.new
+#         id = child.search("./Id").children.inner_text
+#          tmp[:name] = child.search("./Name").children.inner_text
+#          tmp[:discription] = child.search("./Memo").children.inner_text
+#          tmp[:start] = child.search("./Start").children.inner_text
+#          tmp[:end] = child.search("./Finish").children.inner_text
+
+#         result[id] = {
+#           :name => child.search("./Name").children.inner_text,
+#           :discription => child.search("./Memo").children.inner_text,
+#           :start => child.search("./Start").children.inner_text[0..9],
+#           :end => child.search("./Finish").children.inner_text[0..9]
+#         }
+#       end
+#     end
+#     return result
+#   end
+
 end

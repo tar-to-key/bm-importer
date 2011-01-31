@@ -11,6 +11,7 @@ class ImportsController < ApplicationController
     xml.parse(params[:file]['xml_data'])
     @bm_project = xml.get_project
     @tasks = xml.get_tasks
+#    raise @tasks.inspect
 
     flash[:project] = @bm_project
     flash[:tasks] = @tasks
@@ -19,9 +20,10 @@ class ImportsController < ApplicationController
   end
 
   def complete
-    @project_name = flash[:project][:name]
     bm_project = BmProject.new
     bm_project.create(flash)
+
+    @project_name = flash[:project][:name]
     render :layout => 'confirm_base'
   end
 

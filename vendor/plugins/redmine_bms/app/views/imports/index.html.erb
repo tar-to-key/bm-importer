@@ -1,8 +1,11 @@
-<h2>BmManagementXMLファイルを指定してください</h2>
-<% form_tag({:action=>'confirm'},{:multipart=>true}) do %>
-<%= file_field "file", "xml_data" %>
-<%= submit_tag "確認" %>
-<% end %>
-
+<%= stylesheet_link_tag "bms", :plugin => "redmine_bms", :media => "screen" %>
+<h2>Bm Import</h2>
+<div class="bm_div">BmManagementXMLファイルを指定してください</div>
+<div class="bm_form">
+  <% form_tag({:action=>'confirm'},{:multipart=>true}) do %>
+    <%= file_field "file", "xml_data" %>
+    <%= submit_tag "確認" %>
+  <% end %>
+</div>
 
 

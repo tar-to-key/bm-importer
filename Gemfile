@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '2.3.8'
 gem "pg", :group => :production
 gem 'i18n', '0.4.2'
-
+gem 'mysql'
 gem 'nokogiri'
 
 

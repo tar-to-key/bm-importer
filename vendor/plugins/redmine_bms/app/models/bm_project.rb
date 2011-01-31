@@ -5,7 +5,6 @@ class BmProject
 
     create_project
     create_versions
-#    raise @bm[:tasks].inspect
   end
 
   private
@@ -29,12 +28,18 @@ class BmProject
       target.effective_date = task[:finish]
       target.status = 'open'
       target.sharing = 'none'
-     target.save!
+      target.save!
+      if task[:issues].size > 0 then
+        create_project(targetm, task[:issues])
+      end
     end
   end
 
-  def create_story_tickets
+  def create_story_tickets(target, issues)
+    
   end
+
+  private
 
   def make_identifier
     a = ('a'..'z').to_a + ('0'..'9').to_a
@@ -43,10 +48,4 @@ class BmProject
       return rands
     end
   end
-
-  def make_lft
-    project = Project.find(:first, :order => "rgt DESC")
-    return project.rgt.to_i + 1
-  end
-
 end
