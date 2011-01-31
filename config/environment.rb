@@ -59,5 +59,6 @@ Rails::Initializer.run do |config|
     instance_eval File.read(File.join(File.dirname(__FILE__), 'additional_environment.rb'))
   end
 
-  config.action_controller.session = { :key => "_myapp_session", :secret => "hogehoge123456789012345678901234567890" }
+  #config.action_controller.session = { :key => "_myapp_session", :secret => "hogehoge123456789012345678901234567890" }
+  config.action_controller.session_store = :active_record_store
 end
