@@ -30,7 +30,7 @@ class BmProject
       target.sharing = 'none'
       target.save!
       if task[:issues].size > 0 then
-        create_project(targetm, task[:issues])
+        create_project(target, task[:issues])
       end
     end
   end
