@@ -30,13 +30,13 @@ class BmProject
       target.sharing = 'none'
       target.save!
       if task[:issues].size > 0 then
-        create_project(target, task[:issues])
+        create_story_tickets(target, task[:issues])
       end
     end
   end
 
   def create_story_tickets(target, issues)
-    
+    # TODO
   end
 
   private
