@@ -52,6 +52,7 @@ Rails::Initializer.run do |config|
 
   config.gem 'rubytree', :lib => 'tree'
   config.gem 'nokogiri'
+  config.gem 'redmine_client'
 
   # Load any local configuration that is kept out of source control
   # (e.g. gems, patches).

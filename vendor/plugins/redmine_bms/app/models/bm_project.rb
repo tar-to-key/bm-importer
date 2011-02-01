@@ -29,14 +29,24 @@ class BmProject
       target.status = 'open'
       target.sharing = 'none'
       target.save!
-      if task[:issues].size > 0 then
-        create_story_tickets(target, task[:issues])
-      end
+#       if task[:issues].size > 0 then
+#         create_story_tickets(target, task[:issues])
+#       end
     end
   end
 
   def create_story_tickets(target, issues)
-    # TODO
+    issues.each do |k,v|
+      issue = RedmineClient::Issue.new(
+        :project_id => @project.id,
+        :fixed_version_id => target.id,
+        :description => v[:description],
+        :subject => v[:name],
+        :start_date => v[:start],
+        :due_date => v[:end]
+        )
+      issue.save
+    end
   end
 
   private

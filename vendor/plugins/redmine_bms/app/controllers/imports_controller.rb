@@ -20,6 +20,13 @@ class ImportsController < ApplicationController
 
   def complete
     bm_project = BmProject.new
+
+    RedmineClient::Base.configure do
+      self.site = 'http://0.0.0.0:3000';
+      self.user = 'admin'
+      self.password = 'admin'
+    end
+
     bm_project.create(flash)
 
     @project_name = flash[:project][:name]

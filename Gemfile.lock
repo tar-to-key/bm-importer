@@ -24,6 +24,8 @@ GEM
       activesupport (= 2.3.8)
       rake (>= 0.8.3)
     rake (0.8.7)
+    redmine_client (0.0.1)
+      activeresource (~> 2.3.0)
 
 PLATFORMS
   ruby
@@ -34,3 +36,4 @@ DEPENDENCIES
   nokogiri
   pg
   rails (= 2.3.8)
+  redmine_client

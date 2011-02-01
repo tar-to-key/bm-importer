@@ -5,6 +5,7 @@ gem "pg", :group => :production
 gem 'i18n', '0.4.2'
 gem 'mysql'
 gem 'nokogiri'
+gem 'redmine_client'
 
 
 #gem 'devise', '1.1.5'
